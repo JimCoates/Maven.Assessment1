@@ -5,4 +5,6 @@ package com.zipcodewilmington.assessment1.part3;
  */
 public interface Animal {
     String speak();
-}
+    }
+
+
