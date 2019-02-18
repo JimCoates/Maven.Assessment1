@@ -10,7 +10,7 @@ import java.util.Arrays;
 public class PetOwner {
     public String name;
     public ArrayList<Pet> petarray = new ArrayList<Pet>();
-    
+
 
     /**«
      * @param name name of the owner of the Pet

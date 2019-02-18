@@ -60,11 +60,21 @@ public class RockPaperSissorsEvaluator {
     }
 
     /**
-     * @param handSignOfPlayer1 a string representative of a hand sign of a player
-     * @param handSignOfPlayer2 a string representative of a hand sign of a challenger
+     * @param input1 a string representative of a hand sign of a player
+     * @param input2 a string representative of a hand sign of a challenger
      * @return a string representative of the winning hand sign between the two players
      */
-    public String getWinner(String handSignOfPlayer1, String handSignOfPlayer2) {
-        return null;
+    public String getWinner(String input1, String input2) {
+
+        String winner = "";
+
+        if (input1 == "rock" && input2 == "scissor") {
+            winner = "rock";
+        } else if (input2 == "paper" && input1 == "rock") {
+            winner = "rock";
+
+        }
+        return winner;
+
     }
 }

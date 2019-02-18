@@ -10,8 +10,6 @@ public class Palindrome {
         Integer i = 0;
 
 
-
-
         while( i < input.length()) {
 
             if (input.equals(BasicStringUtils.reverse(input))) {
