@@ -9,7 +9,7 @@ public class BasicStringUtils {
      * @return string with identical content, and the first character capitalized
      */
     public static String camelCase(String str) {
-        return null;
+        return str.substring(0,1).toUpperCase() + str.substring(1) ;
     }
 
     /**
@@ -17,7 +17,12 @@ public class BasicStringUtils {
      * @return string with identical contents, in the reverse order
      */
     public static String reverse(String str) {
-        return null;
+        String answer = "";
+
+        for(int i = str.length() - 1; i >=0; i--) {
+            answer += str.charAt(i);
+        }
+        return answer;
     }
 
     /**
@@ -25,7 +30,10 @@ public class BasicStringUtils {
      * @return string with identical contents, in reverse order, with first character capitalized
      */
     public static String reverseThenCamelCase(String str) {
-        return null;
+        String reverse = reverse(str);
+        String answer = camelCase(reverse);
+
+        return answer;
     }
 
 
@@ -34,7 +42,15 @@ public class BasicStringUtils {
      * @return string with identical contents excluding first and last character
      */
     public static String removeFirstAndLastCharacter(String str) {
-        return null;
+        StringBuilder temp = new StringBuilder(str);
+
+        temp.deleteCharAt(0);
+        temp.deleteCharAt(str.length()-2);
+
+        String answer = temp.toString();
+
+
+        return answer;
     }
 
     /**
@@ -42,6 +58,23 @@ public class BasicStringUtils {
      * @return string with identical characters, each with opposite casing
      */
     public static String invertCasing(String str) {
-        return null;
+        char[] temp = str.toCharArray();
+
+
+
+        for (int i = 0; i < temp.length; i++) {
+
+            char letter = temp[i];
+
+            if(Character.isUpperCase(letter)){
+                temp[i] = Character.toLowerCase(letter);
+            } else {
+                temp[i] = Character.toUpperCase(letter);
+            }
+        }
+
+        String answer = new String(temp);
+
+        return answer;
     }
 }
