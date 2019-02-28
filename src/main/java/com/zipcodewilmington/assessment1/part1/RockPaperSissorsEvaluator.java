@@ -18,16 +18,16 @@ public class RockPaperSissorsEvaluator {
 
         String testSign = handSign;
         switch(testSign) {
-            case "rock":
-                answer = "paper";
-                break;
+            case ROCK:
+                return PAPER;
 
-            case "paper":
-                answer = "scissor";
-                break;
-            case "scissor":
-                answer = "rock";
-                break;
+            case PAPER:
+                return SCISSOR;
+
+
+            case SCISSOR:
+                return ROCK;
+
         }
 
         return answer;

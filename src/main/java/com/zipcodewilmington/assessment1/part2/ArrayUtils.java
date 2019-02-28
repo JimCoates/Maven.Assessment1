@@ -17,11 +17,10 @@ public class ArrayUtils {
 
         Integer count = 0;
 
-        for (int i = 0; i < objectArray.length ; i++) {
-            if(objectArray[i] == objectToCount){
+        for (int i = 0; i < objectArray.length; i++) {
+            if (objectArray[i] == objectToCount) {
                 count++;
             }
-
         }
 
         return count;
@@ -37,7 +36,7 @@ public class ArrayUtils {
 
         ArrayList<Integer> arrayList = new ArrayList<Integer>(Arrays.asList(inputArray));
 
-        while(arrayList.contains(valueToRemove)) {
+        while (arrayList.contains(valueToRemove)) {
 
             arrayList.remove(Integer.valueOf(valueToRemove));
         }
@@ -51,12 +50,19 @@ public class ArrayUtils {
      * @return the most frequently occurring object in the array
      * given an array of objects, named `objectArray` return the most frequently occuring object in the array
      */
-    public static Integer getMostCommon(Integer[] inputArray) {
+    public static Object getMostCommon(Object[] objectArray) {
+        Object common = objectArray[0];
+        int commonCount = getNumberOfOccurrences(objectArray,common);
 
+        for(Object currentObject : objectArray) {
+            int currentCount = getNumberOfOccurrences(objectArray,currentObject);
+            if (currentCount > commonCount){
+                common = currentObject;
+                commonCount = currentCount;
+            }
+        }
 
-
-
-        return null;
+        return common;
     }
 
 
@@ -66,11 +72,22 @@ public class ArrayUtils {
      * given an array of objects, named `objectArray` return the least frequently occuring object in the array
      */
     public static Object getLeastCommon(Object[] objectArray) {
-        return null;
+        Object common = objectArray[0];
+        int commonCount = getNumberOfOccurrences(objectArray,common);
+
+        for(Object currentObject : objectArray) {
+            int currentCount = getNumberOfOccurrences(objectArray,currentObject);
+            if (currentCount < commonCount){
+                common = currentObject;
+                commonCount = currentCount;
+            }
+        }
+
+        return common;
     }
 
     /**
-     * @param array1      an array of any type of Object
+     * @param array1 an array of any type of Object
      * @param array2 an array of Objects to add to the first argument
      * @return an array containing all elements in `objectArray` and `objectArrayToAdd`
      * given two arrays `objectArray` and `objectArrayToAdd`, return an array containing all elements in `objectArray` and `objectArrayToAdd`
@@ -79,7 +96,7 @@ public class ArrayUtils {
 
         ArrayList<Integer> list1 = new ArrayList<Integer>(Arrays.asList(array1));
 
-        for (int i = 0; i < array2.length ; i++) {
+        for (int i = 0; i < array2.length; i++) {
             list1.add(array2[i]);
         }
         Integer[] answer = list1.toArray(new Integer[list1.size()]);
